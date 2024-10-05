@@ -17,10 +17,9 @@ export default function Todo() {
 
     function handleClick(){
         setTasks([...tasks,inputData])
-        setInputData(inputData.value="")   
+        setInputData("")   
         
         }
-    console.log(tasks)
 
     return(
             <div className="main">
