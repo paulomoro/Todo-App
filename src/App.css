@@ -1,21 +1,55 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+.main{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  color: #222222;
+}
 
-.title{
+.header .head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  gap: 50px;
+}
+
+.header .title{
   font-size: 2.5em;
   color: #6C63FF;
 }
 
-.main p{
-  color: #222222;
-  font-size: 1.8em;
 
+.header .toggleMode{
+  display: flex;
+  align-items: center;
+  background-color: #222222;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  position: relative;
+  transition: 2s;
 }
+
+.toggleMode .toggleButton{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 100%;
+  margin-left: 5px;
+} 
+
+.header p{
+  font-size: 1.8em;
+}
+
 
 .form{
   display: flex;
@@ -27,7 +61,7 @@
 
 .form label input{
   width: 500px;
-  height: 40px;
+  height: 50px;
   background-color: #f5f3f3;
   outline: none;
   border-radius: 10px;
@@ -59,10 +93,58 @@
   border: #8680f1 2px solid;
 }
 
-.main ol{
-  display: grid;
+.task{
+  display: flex;
   justify-content: center;
+  margin-left: -125px;
 }
-.main ol li{
+
+.task ol{
+  display: grid;
+}
+
+.task ol li{
   text-align: left;
+  background-color:#6C63FF;
+  padding: 10px;
+  margin-top: 20px;
+  width: 470px;
+  color: #fff;
+  list-style-type: none;
+  position: relative;
+  border-radius: 10px;
+}
+
+.task ol li::before{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #6C63FF;
+  left: -30px;
+  top: 15px;
+}
+
+
+/*Dark Mode */
+
+.main.dark{
+  background-color: #222222;
+  color: #fff;
+}
+
+.header.dark .toggleMode{
+  background-color: #fff;
+  justify-content:flex-end;
+  transition: 2s;
+}
+
+ .header.dark .toggleMode .toggleButton{
+  margin-right: 5px;
+  background-color: #222222;
+}
+
+.form .labelItem.dark input{
+    background-color: rgb(3, 3, 21);
 }
