@@ -1,18 +1,22 @@
-
+import { v4 as uuidv4 } from 'uuid'
 export default function Todo(prop) {
 
 
     function handleChange(event){
         prop.setInputData(event.target.value)
     } 
+    const taskId = uuidv4()
+
 
     function handleKeyPressed(event){
+
+
         if(event.key==='Enter'){
             if(prop.inputData === ""){
                 event.preventDefault()
             }
             else{
-            prop.setTasks([...prop.tasks,prop.inputData])
+            prop.setTasks([...prop.tasks,{name: prop.inputData, id: taskId}])
             prop.setInputData("")  
             }
         }
@@ -22,7 +26,7 @@ export default function Todo(prop) {
         if(prop.inputData === ""){
             event.preventDefault()
         } else{
-            prop.setTasks([...prop.tasks,prop.inputData])
+           prop.setTasks([...prop.tasks, {name: prop.inputData, id: taskId}])
             prop.setInputData("") 
         }
        

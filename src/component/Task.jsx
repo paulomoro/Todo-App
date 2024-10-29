@@ -1,18 +1,27 @@
 
 export default function Task(prop){
 
+
     
 
 
     return(
         <div className="task">
-            <ol>
-                {prop.tasks.map((task,index)=>(
-                    <>
-                    <li key={index} id={`task-${index}`}> {task} </li>
-                    </>
+            <ul>
+                {prop.tasks.map((task)=>(
+                    <li key={task.id} > 
+                    <p>{task.name}</p> 
+                    <button onClick={()=> prop.handleDelete(task.id)}> Delete</button>  
+                    </li>
+                     
                 ))}
-            </ol>
+            </ul>
+
+            {/* <ul>
+                <li>hello
+                    <button>hello</button>
+                </li>
+            </ul> */}
         </div>
     )
 }

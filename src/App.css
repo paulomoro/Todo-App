@@ -26,7 +26,7 @@
 }
 
 
-.header .toggleMode{
+ .main .toggleMode{
   display: flex;
   align-items: center;
   background-color: #222222;
@@ -99,11 +99,14 @@
   margin-left: -125px;
 }
 
-.task ol{
+.task ul{
  display: grid;
 }
 
-.task ol li{
+.task ul li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: left;
   background-color:#6C63FF;
   padding: 10px;
@@ -115,7 +118,7 @@
   border-radius: 10px;
 }
 
-.task ol li::before{
+.task ul li::before{
   content: "";
   position: absolute;
   width: 20px;
@@ -123,9 +126,76 @@
   border-radius: 5px;
   background-color: #6C63FF;
   left: -30px;
-  top: 15px;
+  top: 20px;
 }
 
+.task ul li button{
+  background-color: #fff;
+  outline: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #222222;
+}
+
+.loginPage, .signUpPage{
+  display: grid;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginPage h1, .signUpPage h1{
+  font-size: 3.5em;
+  margin-bottom: 40px;
+}
+
+.loginForm, .signUpForm{
+  display: grid;
+  justify-content: center;
+  gap: 30px;
+}
+
+.loginForm label, .signUpForm label{
+  text-align: left;
+}
+
+.loginForm input, .signUpForm input{
+  width: 350px;
+  padding: 12px 5px;
+  border: 1px solid #6C63FF;
+  background-color: #fff;
+  color: #222222;
+}
+
+.loginForm button, .signUpForm button {
+  width: 350px;
+  padding: 12px 5px;
+  background-color: #6C63FF;
+  color: #fff;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+
+}
+
+.error{
+  color: red;
+  text-align: center;
+}
+
+.logout{
+  float: right;
+  margin: -20px 100px 0 0;
+  width: 150px;
+  padding: 12px 5px;
+  background-color: #6C63FF;
+  color: #fff;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
 
 /*Dark Mode */
 
@@ -134,13 +204,13 @@
   color: #fff;
 }
 
-.header.dark .toggleMode{
+.dark .toggleMode{
   background-color: #fff;
   justify-content:flex-end;
   transition: 2s;
 }
 
- .header.dark .toggleMode .toggleButton{
+ .dark .toggleMode .toggleButton{
   margin-right: 5px;
   background-color: #222222;
 }

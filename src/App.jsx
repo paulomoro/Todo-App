@@ -1,50 +1,40 @@
-import TodoForm from './component/TodoForm'
 import './App.css'
-import Header from './component/Header'
-import { useEffect, useState } from 'react'
-import Task from './component/Task'
+import { useState } from 'react'
+import Login from './component/Login'
+import SignUp from './component/SignUp'
+import TodoMain from './component/todoMain'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
 
-  const [inputData, setInputData] = useState("")
-
-
-  const [tasks, setTasks] = useState(()=>{
-    const savedTasks  = localStorage.getItem('tasks')
-    return savedTasks ? JSON.parse(savedTasks) : []
-  })
-
   const [darkMode, setDarkMode] = useState(false)
-
-  useEffect(()=>{
-     localStorage.setItem('tasks', JSON.stringify(tasks))
-  }, [tasks])
-
 
   function handleMode(){
     setDarkMode(prevMode => !prevMode)
   }
- 
-
 
 
   return (
+
    <div className={darkMode ? "main dark" :  "main"}>
-      <Header 
-      darkMode={darkMode}
-      handleMode={handleMode}
-      />
+     <div className="toggleMode" onClick={handleMode}>
+                <div className="toggleButton"></div>
+            </div>
 
-      <TodoForm 
-        inputData={inputData}
-        tasks = {tasks}
-        setTasks = {setTasks}
-        setInputData={setInputData}
-      />
+      <BrowserRouter>
+      <Routes>
+         <Route path="/todoMain" element={<TodoMain 
+         darkMode={darkMode}
+         handleMode={handleMode} 
+        />} />
+          
+        <Route path="/" element={<SignUp />} />
 
-      <Task 
-        tasks  = {tasks}
-      />
+        <Route path="/login" element={<Login/>} />
+
+      </Routes>
+    </BrowserRouter>
+    
    </div>
   )
 }
